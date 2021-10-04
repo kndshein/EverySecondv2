@@ -1,15 +1,45 @@
+import { useState, useEffect } from "react";
 import { GraphQLClient, gql } from "graphql-request";
+import SlideOne from "../../components/SlideOne";
 
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
 
-export default function Topic({ data: { topic } }) {
-  console.log(topic);
-  return <div>Topic</div>;
+function useOnScreen(options) {
+  const [refTopic, setRefTopic] = useState(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setVisible(entry.isIntersecting);
+    }, options);
+
+    if (refTopic) {
+      observer.observe(refTopic);
+    }
+
+    return () => {
+      if (refTopic) {
+        observer.unobserve(refTopic);
+      }
+    };
+  }, [refTopic, options, visible]);
+
+  return [setRefTopic, visible];
 }
 
-export const getStaticProps = async ({ params }) => {
-  const slug = params.slug;
+export default function Topic({ data: { topic } }) {
+  console.log(topic);
+  const [setRefTopic, visible] = useOnScreen({ threshold: 0.5 });
+  return (
+    <>
+      <div className="slides-container">
+        <SlideOne content={topic.slideOne} />
+      </div>
+    </>
+  );
+}
 
+export const getStaticProps = async ({ params: { slug } }) => {
   const query = gql`
     query Topic($slug: String!) {
       topic(where: { slug: $slug }) {
@@ -82,8 +112,6 @@ export const getStaticProps = async ({ params }) => {
 
   const data = await client.request(query, { slug });
 
-  console.log(data);
-
   if (!data.topic) {
     return {
       notFound: true,
@@ -105,7 +133,6 @@ export const getStaticPaths = async () => {
   `;
 
   const data = await client.request(query);
-  console.log(data);
 
   return {
     paths: data.topics.map((topic) => ({ params: { slug: topic.slug } })),
