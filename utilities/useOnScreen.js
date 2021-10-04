@@ -1,24 +1,30 @@
 import { useState, useEffect } from "react";
 
-export default function useOnScreen(options) {
-  const [refTopic, setRefTopic] = useState(null);
+export default function useOnScreen(options, slides = false) {
+  const [ref, setRef] = useState(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      setVisible(entry.isIntersecting);
+      if (slides) {
+        if (!visible) {
+          setVisible(entry.isIntersecting);
+        }
+      } else {
+        setVisible(entry.isIntersecting);
+      }
     }, options);
 
-    if (refTopic) {
-      observer.observe(refTopic);
+    if (ref) {
+      observer.observe(ref);
     }
 
     return () => {
-      if (refTopic) {
-        observer.unobserve(refTopic);
+      if (ref) {
+        observer.unobserve(ref);
       }
     };
-  }, [refTopic, options, visible]);
+  }, [ref, options, visible]);
 
-  return [setRefTopic, visible];
+  return [setRef, visible];
 }

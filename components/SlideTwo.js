@@ -9,7 +9,7 @@ export default function SlideTwo({ content }) {
     i = 0,
     len = content.totalNum;
   while (++i <= len) num.push(i);
-  const [setRef, visible] = useOnScreen({ threshold: 0.5 });
+  const [setRef, visible] = useOnScreen({ threshold: 0.5 }, true);
   const [resizer, setResizer] = useState({ vw: 0, px: 0 });
 
   useEffect(() => {
