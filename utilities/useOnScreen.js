@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 export default function useOnScreen(options) {
   const [refTopic, setRefTopic] = useState(null);
   const [visible, setVisible] = useState(false);
