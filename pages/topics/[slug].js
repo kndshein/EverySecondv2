@@ -1,31 +1,9 @@
 import { useState, useEffect } from "react";
 import { GraphQLClient, gql } from "graphql-request";
 import SlideOne from "../../components/SlideOne";
+import useOnScreen from "../../utilities/useOnScreen";
 
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
-
-function useOnScreen(options) {
-  const [refTopic, setRefTopic] = useState(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      setVisible(entry.isIntersecting);
-    }, options);
-
-    if (refTopic) {
-      observer.observe(refTopic);
-    }
-
-    return () => {
-      if (refTopic) {
-        observer.unobserve(refTopic);
-      }
-    };
-  }, [refTopic, options, visible]);
-
-  return [setRefTopic, visible];
-}
 
 export default function Topic({ data: { topic } }) {
   console.log(topic);
