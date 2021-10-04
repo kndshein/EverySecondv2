@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useOnScreen from "../utilities/useOnScreen";
 
 export default function SlideTwo({ content }) {
-  console.log(content);
   var num = [],
     i = 0,
     len = content.totalNum;
@@ -17,11 +16,10 @@ export default function SlideTwo({ content }) {
       let vw = 0;
       let px = 0;
       vw = Math.round(29.863 * Math.pow(num, -0.479) * 10) / 10;
-      console.log(vw);
+      console.log("vw", vw);
       px = Math.round(298.68 * Math.pow(num, -0.479) * 10) / 10;
       setResizer({ vw: vw, px: px });
     };
-
     calcSize(content.totalNum);
   }, []);
 

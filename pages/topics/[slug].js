@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { GraphQLClient, gql } from "graphql-request";
 import SlideOne from "../../components/SlideOne";
 import SlideTwo from "../../components/SlideTwo";
+import SlideThree from "../../components/SlideThree";
 import useOnScreen from "../../utilities/useOnScreen";
 
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
@@ -14,6 +15,7 @@ export default function Topic({ data: { topic } }) {
       <div className="slides-container">
         <SlideOne content={topic.slideOne} />
         <SlideTwo content={topic.slideTwo} />
+        <SlideThree content={topic.slideThree} />
       </div>
     </>
   );
