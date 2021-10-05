@@ -3,6 +3,7 @@ import { GraphQLClient, gql } from "graphql-request";
 import SlideOne from "../../components/SlideOne";
 import SlideTwo from "../../components/SlideTwo";
 import SlideThree from "../../components/SlideThree";
+import SlideFour from "../../components/SlideFour";
 import useOnScreen from "../../utilities/useOnScreen";
 
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
@@ -16,6 +17,7 @@ export default function Topic({ data: { topic } }) {
         <SlideOne content={topic.slideOne} />
         <SlideTwo content={topic.slideTwo} />
         <SlideThree content={topic.slideThree} />
+        <SlideFour content={topic.slideFour} setRefTopic={setRef} />
       </div>
     </>
   );
