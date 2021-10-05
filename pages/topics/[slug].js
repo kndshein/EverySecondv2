@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { GraphQLClient, gql } from "graphql-request";
 import Nav from "../../components/Nav";
 import SlideOne from "../../components/SlideOne";
