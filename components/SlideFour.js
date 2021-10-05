@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useOnScreen from "../utilities/useOnScreen";
 
 export default function SlideFour({ content, setRefTopic }) {
-  console.log(content);
   const [setRef, visible] = useOnScreen({ threshold: 0.5 });
 
   const variants = {

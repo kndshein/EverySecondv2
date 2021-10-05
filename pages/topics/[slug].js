@@ -10,7 +10,6 @@ import useOnScreen from "../../utilities/useOnScreen";
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
 
 export default function Topic({ data: { topic } }) {
-  console.log(topic);
   const [setRef, visible] = useOnScreen({ threshold: 0.5 });
   return (
     <>

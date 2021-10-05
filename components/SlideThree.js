@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import useOnScreen from "../utilities/useOnScreen";
 
 export default function SlideThree({ content }) {
-  // console.log(content);
   const [setRef, visible] = useOnScreen({ threshold: 0.5 }, true);
 
   const variants = {
