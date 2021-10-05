@@ -13,7 +13,7 @@ export default function Topic({ data: { topic } }) {
   const [setRef, visible] = useOnScreen({ threshold: 0.5 });
   return (
     <>
-      <Nav />
+      <Nav title={topic.title} />
       <div className="slides-container">
         <SlideOne content={topic.slideOne} />
         <SlideTwo content={topic.slideTwo} />
@@ -29,6 +29,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const query = gql`
     query Topic($slug: String!) {
       topic(where: { slug: $slug }) {
+        title
         slideOne {
           seconds
           tagline

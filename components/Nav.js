@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Nav({ content, topic, handlePrev, handleNext }) {
+export default function Nav({ title }) {
   return (
     <div className="nav-bar-container">
       <FontAwesomeIcon
-        className="arrow arrow-left"
+        className="icon-button arrow-left"
         icon={["fas", "chevron-left"]}
       />
       {/* <MdKeyboardArrowLeft
@@ -14,13 +14,15 @@ export default function Nav({ content, topic, handlePrev, handleNext }) {
       /> */}
       <div className="logo-container">
         <div className="logo">Every Second</div>
-        <div className="divider">
-          <FontAwesomeIcon icon={["fas", "circle"]} />
-        </div>
-        <div className="logo-tagline">poop mcsquad</div>
+        <FontAwesomeIcon className="divider" icon={["fas", "circle"]} />
+        <div className="logo-tagline">{title}</div>
       </div>
       <FontAwesomeIcon
-        className="arrow arrow-right"
+        className="icon-button shuffle"
+        icon={["fas", "redo-alt"]}
+      />
+      <FontAwesomeIcon
+        className="icon-button arrow-right"
         icon={["fas", "chevron-right"]}
       />
       {/* <MdKeyboardArrowRight
