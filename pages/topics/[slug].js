@@ -4,6 +4,7 @@ import SlideOne from "../../components/SlideOne";
 import SlideTwo from "../../components/SlideTwo";
 import SlideThree from "../../components/SlideThree";
 import SlideFour from "../../components/SlideFour";
+import ScrollBar from "../../components/ScrollBar";
 import useOnScreen from "../../utilities/useOnScreen";
 
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
@@ -19,6 +20,7 @@ export default function Topic({ data: { topic } }) {
         <SlideThree content={topic.slideThree} />
         <SlideFour content={topic.slideFour} setRefTopic={setRef} />
       </div>
+      <ScrollBar visible={visible} />
     </>
   );
 }
