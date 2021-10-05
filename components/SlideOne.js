@@ -13,7 +13,7 @@ export default function SlideOne({ content }) {
       opacity: 1,
       transition: {
         staggerChildren: content.seconds,
-        delayChildren: 2 + content.seconds / 2,
+        delayChildren: 2.2 + content.seconds / 2,
       },
     },
   };
@@ -65,7 +65,10 @@ export default function SlideOne({ content }) {
           >
             {num.map((x, index) => (
               <motion.div variants={item} key={index}>
-                <FontAwesomeIcon icon={content.icon.split(" ")} />
+                <FontAwesomeIcon
+                  className="icon"
+                  icon={content.icon.split(" ")}
+                />
               </motion.div>
             ))}
           </motion.div>

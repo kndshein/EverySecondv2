@@ -11,7 +11,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 40%;
     height: 100%;
     padding: 100px 0 80px 30px;
     color: white;
@@ -19,7 +19,7 @@
     .tagline {
       margin-bottom: 4vw;
       font-size: calc(max(2.5vw, 1.5rem));
-      width: 50%;
+      width: 60%;
     }
 
     .tagline-2 {
@@ -27,25 +27,24 @@
       font-weight: 700;
       font-style: italic;
       font-size: calc(max(4vw, 2.5rem));
-      width: 50%;
+      width: 60%;
     }
   }
 
   .icons-container {
     z-index: 5;
     position: absolute;
-    left: 50%;
+    left: 40%;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 60%;
     height: 100vh;
-    padding: 100px 30px 80px 0;
+    padding: 100px 80px 80px 0;
 
     &:after {
       content: "";
-      // flex: auto;
     }
 
     .icon-container {
@@ -82,6 +81,7 @@
 @media screen and (max-width: 768px) {
   .slide-two-container {
     .taglines-container {
+      z-index: 10;
       width: 100%;
       padding: 70px 20px 50px 20px;
       justify-content: center;
@@ -102,6 +102,17 @@
       top: 0;
       padding: 70px 20px 50px 20px;
       width: 100%;
+
+      .icon-container {
+        .icon {
+          opacity: 0.5;
+          filter: invert(100%);
+
+          &.focus {
+            filter: invert(0);
+          }
+        }
+      }
     }
   }
 }

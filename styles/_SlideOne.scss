@@ -51,15 +51,14 @@
       align-content: flex-start;
       flex-flow: row wrap;
       width: 60%;
-      // height: 300px;
       overflow: hidden;
 
       div {
         margin: 0 10px 0 10px;
         margin-bottom: calc(max(2vw, 10px));
         .icon {
+          font-size: calc(max(3vw, 30px));
           width: calc(max(3vw, 30px));
-          filter: invert(100%);
         }
       }
     }

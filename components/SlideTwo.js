@@ -129,7 +129,7 @@ export default function SlideTwo({ content }) {
                 >
                   <FontAwesomeIcon
                     className="icon focus"
-                    icon={["fas", "male"]}
+                    icon={content.icon.split(" ")}
                   />
                 </motion.div>
               );
