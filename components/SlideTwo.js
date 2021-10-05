@@ -127,7 +127,10 @@ export default function SlideTwo({ content }) {
                   }}
                   key={index}
                 >
-                  <FontAwesomeIcon icon={["fas", "male"]} />
+                  <FontAwesomeIcon
+                    className="icon focus"
+                    icon={["fas", "male"]}
+                  />
                 </motion.div>
               );
             }
@@ -138,7 +141,7 @@ export default function SlideTwo({ content }) {
                 style={{ width: `calc(max(${resizer.vw}vw,${resizer.px}px))` }}
                 key={index}
               >
-                <FontAwesomeIcon icon={["fas", "male"]} />
+                <FontAwesomeIcon className="icon" icon={["fas", "male"]} />
               </motion.div>
             );
           })}

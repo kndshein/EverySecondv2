@@ -51,9 +51,12 @@
     .icon-container {
       position: relative;
       .icon {
-        filter: invert(100%);
         opacity: 0.2;
         width: 100%;
+
+        &.focus {
+          opacity: 1;
+        }
       }
     }
   }
