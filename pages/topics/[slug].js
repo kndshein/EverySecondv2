@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { GraphQLClient, gql } from "graphql-request";
+import Nav from "../../components/Nav";
 import SlideOne from "../../components/SlideOne";
 import SlideTwo from "../../components/SlideTwo";
 import SlideThree from "../../components/SlideThree";
@@ -13,6 +14,7 @@ export default function Topic({ data: { topic } }) {
   const [setRef, visible] = useOnScreen({ threshold: 0.5 });
   return (
     <>
+      <Nav />
       <div className="slides-container">
         <SlideOne content={topic.slideOne} />
         <SlideTwo content={topic.slideTwo} />

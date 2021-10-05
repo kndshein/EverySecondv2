@@ -21,6 +21,8 @@ body {
   overflow-x: hidden;
 }
 
+@import "./Nav";
+
 .slides-container {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
