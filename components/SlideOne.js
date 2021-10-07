@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 
 export default function SlideOne({ content }) {
   const animation = {
@@ -70,9 +71,11 @@ export default function SlideOne({ content }) {
           </motion.div>
         </motion.div>
         <div className="background-image">
-          <img
+          <Image
             src={`${content.background.image}`}
             alt={`${content.background.alt}`}
+            layout="fill"
+            objectFit="cover"
           />
         </div>
       </div>
