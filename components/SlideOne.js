@@ -2,27 +2,23 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function SlideOne({ content }) {
-  var num = [],
-    i = 0,
-    len = 30;
-  while (++i <= len) num.push(i);
-
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: content.seconds,
-        delayChildren: 2.2 + content.seconds / 2,
+  const animation = {
+    iconContainer: {
+      hidden: { opacity: 0 },
+      show: {
+        opacity: 1,
+        transition: {
+          staggerChildren: content.seconds,
+          delayChildren: 2.2 + content.seconds / 2,
+        },
       },
     },
-  };
-
-  const item = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { duration: 2.6, ease: "easeOut" },
+    icon: {
+      hidden: { opacity: 0 },
+      show: {
+        opacity: 1,
+        transition: { duration: 2.6, ease: "easeOut" },
+      },
     },
   };
 
@@ -35,7 +31,7 @@ export default function SlideOne({ content }) {
           transition={{ duration: 2 }}
         >
           <motion.div
-            className="taglines-container-container"
+            className="taglines"
             initial={{ y: 50 }}
             animate={{ y: -25 }}
             transition={{ duration: 1, delay: 1.5 }}
@@ -59,12 +55,12 @@ export default function SlideOne({ content }) {
           </motion.div>
           <motion.div
             className="icons-container"
-            variants={container}
+            variants={animation.iconContainer}
             initial="hidden"
             animate="show"
           >
-            {num.map((x, index) => (
-              <motion.div variants={item} key={index}>
+            {[...new Array(30).fill(1)].map((_, index) => (
+              <motion.div variants={animation.icon} key={index}>
                 <FontAwesomeIcon
                   className="icon"
                   icon={content.icon.split(" ")}
