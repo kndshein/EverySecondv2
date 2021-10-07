@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Nav({ title }) {
@@ -13,7 +14,9 @@ export default function Nav({ title }) {
         onClick={() => handlePrev()}
       /> */}
       <div className="logo-container">
-        <div className="logo">Every Second</div>
+        <Link href="/">
+          <a className="logo">Every Second</a>
+        </Link>
         <FontAwesomeIcon className="divider" icon={["fas", "circle"]} />
         <div className="logo-tagline">{title}</div>
       </div>

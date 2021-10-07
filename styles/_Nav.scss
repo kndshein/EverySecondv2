@@ -19,6 +19,15 @@
     text-align: center;
     margin: 0 80px;
 
+    .logo {
+      color: white;
+      text-decoration: none;
+
+      &:hover {
+        color: rgb(197, 255, 159); //TODO: choose a different color
+      }
+    }
+
     .divider {
       font-size: 10px;
       margin: 0 20px;
