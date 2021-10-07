@@ -72,6 +72,7 @@ export default function SlideOne({ content }) {
         </motion.div>
         <div className="background-image">
           <Image
+            className="image"
             src={`${content.background.image}`}
             alt={`${content.background.alt}`}
             layout="fill"
