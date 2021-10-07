@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useOnScreen from "../utilities/useOnScreen";
+import Background from "./Background";
 
 export default function SlideTwo({ content }) {
   const [setRef, visible] = useOnScreen({ threshold: 0.5 }, true);
@@ -126,12 +127,10 @@ export default function SlideTwo({ content }) {
             );
           })}
         </motion.div>
-        <div className="background-image">
-          <img
-            src={`${content.background.image}`}
-            alt={`${content.background.alt}`}
-          />
-        </div>
+        <Background
+          link={content.background.image}
+          alt={content.background.alt}
+        />
       </motion.div>
     </div>
   );
