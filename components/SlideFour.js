@@ -1,51 +1,40 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useOnScreen from "../utilities/useOnScreen";
+import Background from "./Background";
+import Resource from "./Resource";
 
 export default function SlideFour({ content, setRefTopic }) {
   const [setRef, visible] = useOnScreen({ threshold: 0.5 });
 
-  const variants = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: {
-        duration: 1,
-        delay: 0,
+  const animation = {
+    slideContainer: {
+      initial: { opacity: 0 },
+      animate: {
+        opacity: 1,
+        transition: {
+          duration: 1,
+          delay: 0,
+        },
       },
     },
-  };
-
-  const taglineVariants = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: {
-        duration: 2,
-        delay: 1,
+    tagline: {
+      initial: { opacity: 0 },
+      animate: {
+        opacity: 1,
+        transition: {
+          duration: 2,
+          delay: 1,
+        },
       },
     },
-  };
-
-  const resourcesVariants = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 1.5,
-        delayChildren: 2.5,
-      },
-    },
-  };
-
-  const resourcesVariantsChild = {
-    initial: { opacity: 0, y: 50 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 2,
+    resources: {
+      initial: { opacity: 0 },
+      animate: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 1.5,
+          delayChildren: 2.5,
+        },
       },
     },
   };
@@ -53,101 +42,51 @@ export default function SlideFour({ content, setRefTopic }) {
   return (
     <div className="slides">
       <motion.div
-        variants={variants}
+        variants={animation.slideContainer}
         animate={visible ? "animate" : "initial"}
         className="slide-four-container"
         ref={setRefTopic}
       >
         <div className="resources-container">
           <motion.div
-            variants={taglineVariants}
+            variants={animation.tagline}
             animate={visible ? "animate" : "initial"}
             className="tagline"
             ref={setRef}
           >
-            get involved. take action. lend a hand.
+            Get involved. Take action. Lend a hand.
           </motion.div>
           <motion.div
-            variants={resourcesVariants}
+            variants={animation.resources}
             animate={visible ? "animate" : "initial"}
             className="resources"
           >
-            <motion.div variants={resourcesVariantsChild} className="resource">
-              <div className="title" id="educate">
-                Educate Yourself
-              </div>
-              <ul>
-                {content.educates.map((ele, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={`${ele.link}`} target="_blank" rel="noreferrer">
-                        {ele.name}{" "}
-                        <FontAwesomeIcon icon={["fas", "external-link-alt"]} />
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </motion.div>
-            <motion.div variants={resourcesVariantsChild} className="resource">
-              <div className="title" id="awareness">
-                Spread Awareness
-              </div>
-              <ul>
-                {content.awarenesses.map((ele, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={`${ele.link}`} target="_blank" rel="noreferrer">
-                        {ele.name}{" "}
-                        <FontAwesomeIcon icon={["fas", "external-link-alt"]} />
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </motion.div>
-            <motion.div variants={resourcesVariantsChild} className="resource">
-              <div className="title" id="volunteer">
-                Volunteer Your Time
-              </div>
-              <ul>
-                {content.volunteers.map((ele, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={`${ele.link}`} target="_blank" rel="noreferrer">
-                        {ele.name}{" "}
-                        <FontAwesomeIcon icon={["fas", "external-link-alt"]} />
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </motion.div>
-            <motion.div variants={resourcesVariantsChild} className="resource">
-              <div className="title" id="financial">
-                Help Financially
-              </div>
-              <ul>
-                {content.financials.map((ele, index) => {
-                  return (
-                    <li key={index}>
-                      <a href={`${ele.link}`} target="_blank" rel="noreferrer">
-                        {ele.name}{" "}
-                        <FontAwesomeIcon icon={["fas", "external-link-alt"]} />
-                      </a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </motion.div>
+            <Resource
+              title="Educate Yourself"
+              id="educate"
+              content={content.educates}
+            />
+            <Resource
+              title="Spread Awareness"
+              id="awareness"
+              content={content.awarenesses}
+            />
+            <Resource
+              title="Volunteer Your Time"
+              id="volunteer"
+              content={content.volunteers}
+            />
+            <Resource
+              title="Help Financially"
+              id="financial"
+              content={content.financials}
+            />
           </motion.div>
         </div>
-        <div className="background-image">
-          <img
-            src={`${content.background.image}`}
-            alt={`${content.background.alt}`}
-          />
-        </div>
+        <Background
+          link={content.background.image}
+          alt={content.background.alt}
+        />
       </motion.div>
     </div>
   );
