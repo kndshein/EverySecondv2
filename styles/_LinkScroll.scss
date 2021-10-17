@@ -1,0 +1,18 @@
+.links-container {
+  z-index: 5;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+
+  .link {
+    cursor: pointer;
+    font-size: 36px;
+    // font-family: utopia-std-subhead, serif;
+    // font-weight: 700;
+    // font-style: italic;
+    text-decoration: none;
+    text-transform: none;
+  }
+}
