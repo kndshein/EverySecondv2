@@ -19,6 +19,7 @@ export const getStaticProps = async () => {
             alt
             artist
           }
+          seconds
         }
       }
     }

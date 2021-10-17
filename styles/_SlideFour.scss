@@ -1,8 +1,5 @@
 .slide-four-container {
-  position: relative;
   height: 100%;
-  color: white;
-  overflow: hidden;
 
   .resources-container {
     z-index: 5;
@@ -87,7 +84,6 @@
 
             a {
               text-decoration: none;
-              color: white;
               font-size: calc(max(1.25vw, 1rem));
             }
           }

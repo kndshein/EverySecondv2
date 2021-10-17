@@ -1,8 +1,5 @@
 .slide-two-container {
-  position: relative;
   height: 100%;
-  color: white;
-  overflow: hidden;
 
   .taglines-container {
     z-index: 5;
@@ -14,7 +11,6 @@
     width: 40%;
     height: 100%;
     padding: 100px 0 80px 30px;
-    color: white;
 
     .tagline {
       margin-bottom: 4vw;

@@ -42,8 +42,9 @@ export default function SlideOne({ content }) {
               <motion.span
                 animate={{ opacity: [1, 0] }}
                 transition={{
+                  repeat: Infinity,
                   duration: content.seconds / 2,
-                  yoyo: Infinity,
+                  repeatType: "reverse",
                   delay: 2,
                 }}
                 ease={{ ease: "easeInOut" }}
