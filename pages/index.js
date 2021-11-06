@@ -28,7 +28,7 @@ export default function Home({ data: { topics } }) {
           </div>
         );
       })}
-      <div style={{ "z-index": "-2" }} className="background-container">
+      <div style={{ zIndex: "-2" }} className="background-container">
         <Background
           link="https://images.unsplash.com/photo-1508962914676-134849a727f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1"
           alt="Upclose picture of a watch"

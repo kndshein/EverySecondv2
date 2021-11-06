@@ -9,6 +9,7 @@
   }
 
   .artist {
+    z-index: 10;
     position: absolute;
     left: calc(100% - 20px);
     bottom: 20px;

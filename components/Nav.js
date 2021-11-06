@@ -15,7 +15,9 @@ export default function Nav({ title }) {
       /> */}
       <div className="logo-container">
         <Link href="/">
-          <a className="logo">Every Second</a>
+          <a className="logo" title="Every Second Home Page">
+            Every Second
+          </a>
         </Link>
         <FontAwesomeIcon className="divider" icon={["fas", "circle"]} />
         <div className="logo-tagline">{title}</div>
@@ -23,6 +25,7 @@ export default function Nav({ title }) {
       <FontAwesomeIcon
         className="icon-button shuffle"
         icon={["fas", "redo-alt"]}
+        title="Go to Random Topic"
       />
       <FontAwesomeIcon
         className="icon-button arrow-right"
