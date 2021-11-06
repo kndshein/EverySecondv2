@@ -15,9 +15,9 @@ export default function Topic({ data: { topic } }) {
     <>
       <Nav title={topic.title} />
       <div className="slides-container">
-        <SlideOne content={topic.slideOne} />
-        <SlideTwo content={topic.slideTwo} />
-        <SlideThree content={topic.slideThree} />
+        <SlideOne content={topic.slideOne} citations={topic.citations} />
+        <SlideTwo content={topic.slideTwo} citations={topic.citations} />
+        <SlideThree content={topic.slideThree} citations={topic.citations} />
         <SlideFour content={topic.slideFour} setRefTopic={setRef} />
       </div>
       <ScrollBar visible={visible} />
@@ -92,6 +92,12 @@ export const getStaticProps = async ({ params: { slug } }) => {
             alt
             artist
           }
+        }
+        citations {
+          slideNum
+          link
+          label
+          id
         }
       }
     }

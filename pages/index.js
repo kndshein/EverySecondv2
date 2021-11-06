@@ -11,7 +11,6 @@ export default function Home({ data: { topics } }) {
     <div className="homepage-container">
       <div className="logo-container">Every Second</div>
       {topics.map((ele, idx) => {
-        console.log(ele);
         return (
           <div key={ele.id}>
             <FlashingLinks topic={ele} setBackgroundId={setBackgroundId} />

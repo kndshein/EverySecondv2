@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useOnScreen from "../utilities/useOnScreen";
 import Background from "./Background";
+import Footer from "./Footer";
 
-export default function SlideTwo({ content }) {
+export default function SlideTwo({ content, citations }) {
   const [setRef, visible] = useOnScreen({ threshold: 0.5 }, true);
   const [resizer, setResizer] = useState({ vw: 0, px: 0 });
 
@@ -127,6 +128,7 @@ export default function SlideTwo({ content }) {
             );
           })}
         </motion.div>
+        <Footer citations={citations} slideNum={2} />
         <Background
           link={content.background.image}
           alt={content.background.alt}

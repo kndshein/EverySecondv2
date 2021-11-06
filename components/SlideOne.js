@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Background from "./Background";
+import Footer from "./Footer";
 
-export default function SlideOne({ content }) {
+export default function SlideOne({ content, citations }) {
   const animation = {
     iconContainer: {
       hidden: { opacity: 0 },
@@ -71,6 +72,7 @@ export default function SlideOne({ content }) {
             ))}
           </motion.div>
         </motion.div>
+        <Footer citations={citations} slideNum={1} />
         <Background
           link={content.background.image}
           alt={content.background.alt}

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import useOnScreen from "../utilities/useOnScreen";
 import Background from "./Background";
+import Footer from "./Footer";
 
-export default function SlideThree({ content }) {
+export default function SlideThree({ content, citations }) {
   const [setRef, visible] = useOnScreen({ threshold: 0.5 }, true);
 
   const animation = {
@@ -79,6 +80,7 @@ export default function SlideThree({ content }) {
             </motion.span>
           </motion.div>
         </div>
+        <Footer citations={citations} slideNum={3} />
         <Background
           link={content.background.image}
           alt={content.background.alt}
