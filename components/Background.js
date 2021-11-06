@@ -10,7 +10,14 @@ export default function Background({ link, alt, artist }) {
         layout="fill"
         objectFit="cover"
       />
-      <p className="artist">{artist}</p>
+      <a
+        className="artist"
+        href={`https://www.unsplash.com/${artist}`}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {artist}
+      </a>
     </div>
   );
 }

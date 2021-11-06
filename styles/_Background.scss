@@ -9,6 +9,19 @@
   }
 
   .artist {
+    position: absolute;
+    left: calc(100% - 20px);
+    bottom: 20px;
     margin: 0;
+    font-size: 1.25rem;
+    font-style: italic;
+    text-decoration: none;
+    opacity: 0.25;
+    transform-origin: bottom left;
+    transform: rotate(-90deg);
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

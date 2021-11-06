@@ -43,6 +43,15 @@ body {
     position: relative;
     scroll-snap-align: start;
     height: 100vh;
+
+    // disabling pointer-events in grandchildren of slides
+    & > * {
+      .taglines-container,
+      .icons-container,
+      .resources-container {
+        pointer-events: none;
+      }
+    }
   }
 }
 
