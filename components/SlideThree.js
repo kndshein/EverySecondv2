@@ -82,6 +82,7 @@ export default function SlideThree({ content }) {
         <Background
           link={content.background.image}
           alt={content.background.alt}
+          artist={content.background.artist}
         />
       </motion.div>
     </div>

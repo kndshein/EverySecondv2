@@ -18,7 +18,7 @@ export default function Home({ data: { topics } }) {
     <div className="homepage-container">
       <div className="logo-container">Every Second</div>
       {topics.map((ele, idx) => {
-        // console.log(ele);
+        console.log(ele);
         return (
           <div key={ele.id}>
             <FlashingLinks topic={ele} setBackgroundId={setBackgroundId} />
@@ -29,6 +29,7 @@ export default function Home({ data: { topics } }) {
               <Background
                 link={ele.slideOne.background.image}
                 alt={ele.slideOne.background.alt}
+                artist={ele.slideOne.background.artist}
               />
             </div>
           </div>
@@ -38,6 +39,7 @@ export default function Home({ data: { topics } }) {
         <Background
           link="https://images.unsplash.com/photo-1508962914676-134849a727f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1"
           alt="Upclose picture of a watch"
+          artist="@agebarros"
         />
       </div>
     </div>

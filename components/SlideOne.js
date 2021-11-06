@@ -74,6 +74,7 @@ export default function SlideOne({ content }) {
         <Background
           link={content.background.image}
           alt={content.background.alt}
+          artist={content.background.artist}
         />
       </div>
     </div>

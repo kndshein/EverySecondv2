@@ -86,6 +86,7 @@ export default function SlideFour({ content, setRefTopic }) {
         <Background
           link={content.background.image}
           alt={content.background.alt}
+          artist={content.background.artist}
         />
       </motion.div>
     </div>
