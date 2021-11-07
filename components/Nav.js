@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Nav({ isHome, title, slug, slugs }) {
   const [navButtonLinks, setNavButtonLinks] = useState({});
-  console.log(slug, slugs);
 
   if (!isHome) {
     useEffect(() => {
@@ -25,6 +24,11 @@ export default function Nav({ isHome, title, slug, slugs }) {
         nextSlug: nextSlug,
       });
     }, [slug]);
+  } else {
+    useEffect(() => {
+      const randomSlug = slugs[Math.floor(Math.random() * slugs.length)].slug;
+      setNavButtonLinks({ randomSlug: randomSlug });
+    }, [slugs]);
   }
 
   return (
@@ -56,16 +60,30 @@ export default function Nav({ isHome, title, slug, slugs }) {
           </>
         )}
       </div>
-      <FontAwesomeIcon
-        className={`icon-button shuffle ${isHome ? "isHome" : ""}`}
-        icon={["fas", "redo-alt"]}
-        title="Go to Random Topic"
-      />
-      {!isHome && (
+      <a
+        href={
+          isHome
+            ? `/topics/${navButtonLinks.randomSlug}`
+            : `${navButtonLinks.randomSlug}`
+        }
+      >
         <FontAwesomeIcon
-          className="icon-button arrow-right"
-          icon={["fas", "chevron-right"]}
+          className={`icon-button shuffle ${
+            isHome || !navButtonLinks.nextSlug ? "no-arrow-right" : ""
+          }`}
+          icon={["fas", "redo-alt"]}
+          title="Go to Random Topic"
         />
+      </a>
+      {!isHome && (
+        <a href={navButtonLinks.nextSlug ? `${navButtonLinks.nextSlug}` : ""}>
+          <FontAwesomeIcon
+            className={`icon-button arrow-right ${
+              navButtonLinks.nextSlug ? "" : "none"
+            }`}
+            icon={["fas", "chevron-right"]}
+          />
+        </a>
       )}
       {/* <MdKeyboardArrowRight
         size={50}

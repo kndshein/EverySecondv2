@@ -43,6 +43,7 @@
     position: absolute;
     font-size: 30px;
     filter: drop-shadow(0 0 10px rgb(41, 41, 41));
+    top: 20px;
 
     &.none {
       display: none;
@@ -55,11 +56,12 @@
   }
 
   .shuffle {
+    top: 21px;
     right: 0;
-    font-size: 26px;
+    font-size: 27px;
     margin-right: 70px;
 
-    &.isHome {
+    &.no-arrow-right {
       margin-right: 30px;
     }
   }

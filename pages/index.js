@@ -7,11 +7,10 @@ import Nav from "../components/Nav";
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
 
 export default function Home({ data: { topics } }) {
-  console.log(topics);
   const [backgroundId, setBackgroundId] = useState(null);
   return (
     <div className="homepage-container">
-      <Nav isHome={true} />
+      <Nav isHome={true} slugs={topics} />
       <div className="links-in-homepage-container">
         {topics.map((ele, idx) => {
           return (
