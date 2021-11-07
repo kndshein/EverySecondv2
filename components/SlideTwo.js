@@ -115,13 +115,16 @@ export default function SlideTwo({ content, citations }) {
                     : animation.icon
                 }
                 className="icon-container"
-                style={{ width: `calc(max(${resizer.vw}vw,${resizer.px}px))` }}
                 key={index}
               >
                 <FontAwesomeIcon
                   className={`icon ${
                     index < content.highlightNum ? "focus" : ""
                   }`}
+                  style={{
+                    width: `calc(max(${resizer.vw}vw,${resizer.px}px))`,
+                    height: `calc(max(${resizer.vw}vw,${resizer.px}px))`,
+                  }}
                   icon={content.icon.split(" ")}
                 />
               </motion.div>
