@@ -9,11 +9,16 @@ import useOnScreen from "../../utilities/useOnScreen";
 
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL);
 
-export default function Topic({ data: { topic } }) {
+export default function Topic({ data: { topic }, dataTwo: { topics } }) {
   const [setRef, visible] = useOnScreen({ threshold: 0.5 });
   return (
     <>
-      <Nav title={topic.title} />
+      <Nav
+        isHome={false}
+        title={topic.title}
+        slug={topic.slug}
+        slugs={topics}
+      />
       <div className="slides-container">
         <SlideOne content={topic.slideOne} citations={topic.citations} />
         <SlideTwo content={topic.slideTwo} citations={topic.citations} />
@@ -30,6 +35,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
     query Topic($slug: String!) {
       topic(where: { slug: $slug }) {
         title
+        slug
         slideOne {
           seconds
           tagline
@@ -98,16 +104,25 @@ export const getStaticProps = async ({ params: { slug } }) => {
     }
   `;
 
-  const data = await client.request(query, { slug });
+  const queryTwo = gql`
+    query Topics {
+      topics {
+        slug
+      }
+    }
+  `;
 
-  if (!data.topic) {
+  const data = await client.request(query, { slug });
+  const dataTwo = await client.request(queryTwo);
+
+  if (!data.topic || !dataTwo.topics) {
     return {
       notFound: true,
     };
   }
 
   return {
-    props: { data },
+    props: { data, dataTwo },
   };
 };
 
@@ -115,6 +130,7 @@ export const getStaticPaths = async () => {
   const query = gql`
     query TopicsSlugs {
       topics {
+        id
         slug
       }
     }

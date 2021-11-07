@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Footer({ citations, slideNum }) {
-  console.log(citations);
   const [citationsOpen, setCitationsOpen] = useState(false);
   const [relevantCitations, setRelevantCitations] = useState([]);
 
