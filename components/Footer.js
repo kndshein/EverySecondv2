@@ -32,7 +32,7 @@ export default function Footer({ citations, slideNum }) {
     setRelevantCitations(
       citations.filter((citation) => citation.slideNum.includes(slideNum))
     );
-  }, [citations]);
+  }, [citations, slideNum]);
 
   return (
     <>

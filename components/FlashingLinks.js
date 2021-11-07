@@ -8,7 +8,7 @@ export default function FlashingLinks({ topic, setBackgroundId }) {
 
   return (
     <div className="links-container">
-      <Link href={`/topics/${topic.slug}`} key={topic.id}>
+      <Link href={`/topics/${topic.slug}`} key={topic.id} passHref={true}>
         <motion.a
           className="link"
           onMouseEnter={() => handleBackgroundHover(topic.id)}

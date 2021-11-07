@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Nav({ isHome, title, slug, slugs }) {
   const [navButtonLinks, setNavButtonLinks] = useState({});
 
-  if (!isHome) {
-    useEffect(() => {
+  useEffect(() => {
+    if (!isHome) {
       const currentSlugIdx = slugs.findIndex((ele) => ele.slug === slug);
       const slugExcludedSlugs = slugs.filter((ele) => ele.slug !== slug);
       const randomSlug =
@@ -23,13 +23,11 @@ export default function Nav({ isHome, title, slug, slugs }) {
         prevSlug: prevSlug,
         nextSlug: nextSlug,
       });
-    }, [slug]);
-  } else {
-    useEffect(() => {
+    } else {
       const randomSlug = slugs[Math.floor(Math.random() * slugs.length)].slug;
       setNavButtonLinks({ randomSlug: randomSlug });
-    }, [slugs]);
-  }
+    }
+  }, [slug, slugs, isHome]);
 
   return (
     <div className="nav-bar-container">
