@@ -33,7 +33,6 @@ export const getStaticProps = async ({ params: { slug } }) => {
         slideOne {
           seconds
           tagline
-          taglineCitation
           icon
           background {
             image
@@ -43,9 +42,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
         }
         slideTwo {
           taglineOne
-          taglineOneCitation
           taglineTwo
-          taglineTwoCitation
           icon
           highlightNum
           totalNum
@@ -57,10 +54,8 @@ export const getStaticProps = async ({ params: { slug } }) => {
         }
         slideThree {
           taglineOne
-          taglineOneCitation
           taglineTwo
           taglineTwoFocus
-          taglineTwoCitation
           hexColor {
             hex
           }
