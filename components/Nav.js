@@ -80,6 +80,7 @@ export default function Nav({ isHome, title, slug, slugs }) {
               navButtonLinks.nextSlug ? "" : "none"
             }`}
             icon={["fas", "chevron-right"]}
+            title="Go to Next Topic"
           />
         </a>
       )}
